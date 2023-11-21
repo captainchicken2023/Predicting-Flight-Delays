@@ -1,6 +1,6 @@
 # Project 4: Predicting Flight Delays
 
-![flightdelay](https://raw.githubusercontent.com/Descent098/ezcv/master/.github/logo.png)
+![flightdelay](https://github.com/captainchicken2023/Predicting-Flight-Delays/blob/main/Images/delayimages.png)
 
 
 ## Table of Contents
