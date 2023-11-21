@@ -8,15 +8,14 @@
 3. [Initial Assessment](#initial-assessment)
 4. [Delay Observations](#delay-observations)
 5. [Predictions: Logical Regression & Random Forest](#predictions-logical-regression-&-random-forest)
-6. [Conclusion](#conclusion)
-7. [Summary & Next Steps](#summary-&-next-steps)
-8. [References](#references)
+6. [Conclusion & Future Prospects](#conclusion-&-future-prospects)
+7. [References](#references)
 
 
 ## Introduction
 The holidays are approaching and many are planning to travel by plane. Considering the delays one may face, is it worth it to fly?
 
-Though travellers may experience various inconveniences, I focused on delays since travellers are more likely to experience this in general, year-round. Annual diversions rates aren't very high, less than 4,000 based on recent averages. Cancellations typically stem from extreme circumstances- if one flight is canceled, likely multiple or all will follow suit regardless of the flight path or airlines.
+Though travellers may experience various inconveniences, I focused on delays since travellers are more likely to experience this in general, year-round. Annual diversion rates aren't very high, less than 4,000 based on recent averages. Cancellations typically stem from extreme circumstances- if one flight is canceled, likely multiple or all will follow suit regardless of the flight path or airlines.
 
 According to the FAA, a flight is considered delayed if it has not taken off within 15 minutes of its scheduled departure time.
 
@@ -31,14 +30,14 @@ To find out, I obtained my dataset from the Bureau of Transport Statistics and e
 
 
 ## Data Processing
-Processing was an arduous process as my combined set contained nearly 6.8 million records. 
+Processing was an arduous experience as my combined set contained nearly 6.8 million records. 
 
-In addition to dropping NAN entries and columns that didn't offer value, I eliminated additional columns that could result in a dummy variable trap. This could have given a particular dimension an unintended advantage which could affect prediction outcomes. 
+In addition to dropping NAN entries and columns that didn't offer value, I eliminated additional columns that could result in a dummy variable trap. This could have given a particular dimension an unintended advantage which would negatively affect prediction outcomes. 
 
-While it would have been interesting to examine and predict delay reasons, the data was not consistently populated, so I dropped those columns as well. Data types were updated as needed, and select data points were remapped for ease of understanding. Finally, I did keep a full set of the processed data for my reference, but a reduced set (150001 entries) was shuffled and saved for further analysis.
+While it would have been interesting to examine and predict delay reasons, the data was not consistently populated, so I dropped those columns as well. Data types were updated as needed, and select data points were remapped for ease of understanding. Finally, I did keep a full set of the processed data for my reference, but a reduced set (150001 entries) was shuffled and saved for prediction analysis.
 
 Two standard prediction models were selected to test the data.
-- Logistical Regression (followed by Random OverSampling )
+- Logistical Regression (followed by Random OverSampling)
 - Random Forest (followed by Best Estimator)
 
 
@@ -47,7 +46,10 @@ The larger cleaned dataset was loaded into Tableau for an initial analysis. The 
 
 
 ## Delay Observations
-The most delayed origins and destinations charts were topped by similar airport codes. The most delayed airlines also happen to provide the most flights, though Southwest had a significantly higher rate. It is important to bear in mind that the busiest locations and top service companies will naturally experience a higher chance of delays.
+The most delayed origins and destinations charts were topped by similar airport codes. The most delayed airlines also happen to provide the most flights, though Southwest had a significantly higher rate. This metric may be an anomaly when compared with other reports which reflect Delta and American as the top two carriers.
+ 
+
+Regardless, it is important to bear in mind that the busiest locations and top service companies may naturally experience a higher chance of delays.
 
 Additional delay notes:
 - Peaks in June/July, and December
@@ -58,8 +60,23 @@ Additional delay notes:
 
 
 ## Predictions: Logistical Regression & Random Forest
+Let's quickly compare models before getting started:
+
+- Logistical Regression
+* Suitable only for binary classification problems
+* Assumes linear relationships between the independent/dependent variables
+* Prone to overfitting
+* Prone to biased predictions for imbalanced datasets
+
+- Random Forest
+* Suitable for both classification and regression problems
+* Handles missing values, outliers, and non-linear relationships well
+* Handles high-dimensional data well
+* Time-consuming to train
 
 ### Logistical Regression
+Up front, it is worth mentioning that memory limitations severely limited the dataset size. I had to reduce total entries to account for the dummy columns needed.
+
 Logistical Regression yielded an initial accuracy rate of 50%. This may have been due to the extreme imbalance in y values:
 On-Time:  87185
 Delayed:  25917
@@ -69,25 +86,14 @@ Retesting with Random OverSampler struck a balance and raised the accuracy rate 
 ### Random Forest
 Random Forest yielded much better starting results at 74% accuracy. The top 10 Feature focused on weekdays, then dates.
 
-Best Estimator was indeed the best model: 77% accuracy. Top 10 Features focused on multiple items: airlines, locations, and dates.
+Best Estimator was indeed the best model: 77% accuracy. Top 10 Features focused on multiple variables and figures we called out in our Tableau analysis: airlines, locations, and dates. 
 
 
-## Conclusion
+## Conclusion & Future Prospects
+Flight delays CAN be predicted. The clear winners are: Random Forest and Best Estimator. Additional adjustments may improve outcomes for all tested models.
 
+Locating detailed time and reliable delay reason indicators can help further refine the model and results. Additionally, resolving memory issues would enable me to pursue a proper representative sample.
 
-Supplementing predictions with real-time monitoring of news, dates, and weather conditions may offer the best chance of at least being prepared for a delay.
-
-Government shutdowns, technical glitches, and other unusual events makes it difficult to consistently predict delays for a given path.
-
-## Summary & Next Steps
-
-
-### Project Constraints
-Locating detailed time and reliable delay reason indicators can help further refine the model and results.
-
-Additionally, memory issues prevented me from processing a proper representative sample.
-
-### Future Prospects
 Applying additional technologies can make the model more robust and interactive
 - User interface for path lookup
 - Weather forecasting and mapping for the date and path of the flight
