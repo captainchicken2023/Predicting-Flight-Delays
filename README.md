@@ -84,15 +84,24 @@ On-Time:  87185
 Delayed:  25917
 
 Retesting with Random OverSampler struck a balance and raised the accuracy rate to 59%. 
+![resampledcm](https://github.com/captainchicken2023/Predicting-Flight-Delays/blob/main/Images/delayimages.png)
+![resampledcmalt](https://github.com/captainchicken2023/Predicting-Flight-Delays/blob/main/Images/LR%20Alternate%20CM%20Resampled.png)
+
 
 ### Random Forest
 Random Forest yielded much better starting results at 74% accuracy. The top 10 Feature focused on weekdays, then dates.
 
 Best Estimator was indeed the best model: 77% accuracy. Top 10 Features focused on multiple variables and figures we called out in our Tableau analysis: airlines, locations, and dates. 
 
+![cmrfbe](https://github.com/captainchicken2023/Predicting-Flight-Delays/blob/main/Images/LR%20CM%20RFBE.png)
+![rfbefeatures](https://github.com/captainchicken2023/Predicting-Flight-Delays/blob/main/Images/LR%20Features%20RFBE.png)
+
 
 ## Conclusion & Future Prospects
 Flight delays CAN be predicted. The clear winners are: Random Forest and Best Estimator. Additional adjustments may improve outcomes for all tested models.
+
+
+![modelscompared](https://github.com/captainchicken2023/Predicting-Flight-Delays/blob/main/Images/Models_Compared.png?raw=true)
 
 Locating detailed time and reliable delay reason indicators can help further refine the model and results. Additionally, resolving memory issues would enable me to pursue a proper representative sample.
 
