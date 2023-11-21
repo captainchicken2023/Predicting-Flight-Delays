@@ -84,7 +84,9 @@ On-Time:  87185
 Delayed:  25917
 
 Retesting with Random OverSampler struck a balance and raised the accuracy rate to 59%. 
-![resampledcm](https://github.com/captainchicken2023/Predicting-Flight-Delays/blob/main/Images/delayimages.png)
+
+
+![resampledcm](https://github.com/captainchicken2023/Predicting-Flight-Delays/blob/main/Images/LR%20CM%20Resampled.png)
 ![resampledcmalt](https://github.com/captainchicken2023/Predicting-Flight-Delays/blob/main/Images/LR%20Alternate%20CM%20Resampled.png)
 
 
