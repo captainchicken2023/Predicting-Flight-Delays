@@ -1,5 +1,7 @@
 # Project 4: Predicting Flight Delays
 
+![flightdelay](https://raw.githubusercontent.com/Descent098/ezcv/master/.github/logo.png)
+
 
 ## Table of Contents
 
