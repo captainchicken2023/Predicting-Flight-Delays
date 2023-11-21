@@ -14,9 +14,9 @@
 
 
 ## Introduction
-The holidays are approaching and many are beginning to consider travel plans. Considering the delays one may face, is it worth it?
+The holidays are approaching and many are planning to travel by plane. Considering the delays one may face, is it worth it to fly?
 
-Though there are many inconveniences travellers may encounter, I chose to focus on delays. Cancellations, for example, typically stem from extreme circumstances such as weather or threat- if one flight is canceled, likely multiple or all will follow suit regardless of the flight path or airlines.
+Though travellers may experience various inconveniences, I focused on delays since travellers are more likely to experience this in general, year-round. Annual diversions rates aren't very high, less than 4,000 based on recent averages. Cancellations typically stem from extreme circumstances- if one flight is canceled, likely multiple or all will follow suit regardless of the flight path or airlines.
 
 According to the FAA, a flight is considered delayed if it has not taken off within 15 minutes of its scheduled departure time.
 
@@ -27,17 +27,19 @@ Common causes of delays include:
 
 Delays result in a wide-range of negative effects for carriers, passengers, and beyond. Is it possible to predict if a flight will be delayed?
 
+To find out, I obtained my dataset from the Bureau of Transport Statistics and evaluated domestic flight records from September 2022 - August 2023. 
+
 
 ## Data Processing
-I obtained my dataset from the Bureau of Transport Statistics and evaluated US flight records from September 2022 - August 2023. 
+Processing was an arduous process as my combined set contained nearly 6.8 million records. 
 
-Processing was an arduous process as my combined set contained nearly 6.8 million records. In addition to dropping NAN entries and columns that didn't offer value, I eliminated additional columns that could result in a dummy variable trap. This could have given a particular dimension an unintended advantage which could affect prediction outcomes. 
+In addition to dropping NAN entries and columns that didn't offer value, I eliminated additional columns that could result in a dummy variable trap. This could have given a particular dimension an unintended advantage which could affect prediction outcomes. 
 
 While it would have been interesting to examine and predict delay reasons, the data was not consistently populated, so I dropped those columns as well. Data types were updated as needed, and select data points were remapped for ease of understanding. Finally, I did keep a full set of the processed data for my reference, but a reduced set (150001 entries) was shuffled and saved for further analysis.
 
 Two standard prediction models were selected to test the data.
-- Linear regression 
-- Random Forest
+- Logistical Regression (followed by Random OverSampling )
+- Random Forest (followed by Best Estimator)
 
 
 ## Initial Assessment
@@ -45,36 +47,37 @@ The larger cleaned dataset was loaded into Tableau for an initial analysis. The 
 
 
 ## Delay Observations
-The most delayed origins and destinations charts were topped by similar airport codes. The most delayed airlines also happen to provide the most flights. Naturally, the busiest locations and top service companies will experience a higher chance of delays.
+The most delayed origins and destinations charts were topped by similar airport codes. The most delayed airlines also happen to provide the most flights, though Southwest had a significantly higher rate. It is important to bear in mind that the busiest locations and top service companies will naturally experience a higher chance of delays.
 
 Additional delay notes:
-- Peaks in July/August, and December
+- Peaks in June/July, and December
 - Very slight trendline decrease as month progresses
-- Peaks dates 5th, 11th, 22nd – 26th
+- Peaks dates 11th, 16th, 23rd, 26th
 - Significant decrease in delays on 31st correlates with fewer scheduled flights
-- Fewer delays observed on Tuesdays and Saturdays
+- Fewer delays observed on Tuesdays, Wednesdays, and Saturdays
 
 
-## Predictions: Logical Regression & Random Forest
+## Predictions: Logistical Regression & Random Forest
 
+### Logistical Regression
+Logistical Regression yielded an initial accuracy rate of 50%. This may have been due to the extreme imbalance in y values:
+On-Time:  87185
+Delayed:  25917
 
-### Logical Regression
-
-
+Retesting with Random OverSampler struck a balance and raised the accuracy rate to 59%. 
 
 ### Random Forest
+Random Forest yielded much better starting results at 74% accuracy. The top 10 Feature focused on weekdays, then dates.
 
-
+Best Estimator was indeed the best model: 77% accuracy. Top 10 Features focused on multiple items: airlines, locations, and dates.
 
 
 ## Conclusion
 
 
-Government shutdowns, technical glitches, and other unusual events makes it difficult to consistently predict delays for a given path.
-
 Supplementing predictions with real-time monitoring of news, dates, and weather conditions may offer the best chance of at least being prepared for a delay.
 
-
+Government shutdowns, technical glitches, and other unusual events makes it difficult to consistently predict delays for a given path.
 
 ## Summary & Next Steps
 
@@ -104,3 +107,5 @@ Applying additional technologies can make the model more robust and interactive
 - https://www.geeksforgeeks.org/using-dictionary-to-remap-values-in-pandas-dataframe-columns/#
 - https://stackoverflow.com/questions/29576430/shuffle-dataframe-rows
 - https://towardsdatascience.com/mastering-random-forests-a-comprehensive-guide-51307c129cb1
+- https://www.lendingtree.com/credit-cards/study/airlines-on-time-arrivals/
+- https://www.geeksforgeeks.org/logistic-regression-vs-random-forest-classifier/
