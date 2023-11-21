@@ -62,17 +62,17 @@ Additional delay notes:
 ## Predictions: Logistical Regression & Random Forest
 Let's quickly compare models before getting started:
 
-- Logistical Regression
-* Suitable only for binary classification problems
-* Assumes linear relationships between the independent/dependent variables
-* Prone to overfitting
-* Prone to biased predictions for imbalanced datasets
+1. Logistical Regression
+- Suitable only for binary classification problems
+- Assumes linear relationships between the independent/dependent variables
+- Prone to overfitting
+- Prone to biased predictions for imbalanced datasets
 
-- Random Forest
-* Suitable for both classification and regression problems
-* Handles missing values, outliers, and non-linear relationships well
-* Handles high-dimensional data well
-* Time-consuming to train
+2. Random Forest
+- Suitable for both classification and regression problems
+- Handles missing values, outliers, and non-linear relationships well
+- Handles high-dimensional data well
+- Time-consuming to train
 
 ### Logistical Regression
 Up front, it is worth mentioning that memory limitations severely limited the dataset size. I had to reduce total entries to account for the dummy columns needed.
@@ -101,7 +101,7 @@ Applying additional technologies can make the model more robust and interactive
 
 ## References
 - Office Hours & Class Exercises
-- Bureau of Transportation Statistics
+- https://www.transtats.bts.gov/DL_SelectFields.aspx?gnoyr_VQ=FGJ&QO_fu146_anzr=b0-gvzr
 - https://www.npr.org/2023/11/09/1211064462/southwest-airlines-flight-cancellations-holiday-travel 
 - https://en.wikipedia.org/wiki/Flight_cancellation_and_delay#:~:text=A%20flight%20delay%20occurs%20when,later%20than%20its%20scheduled%20time. 
 - https://aspm.faa.gov/aspmhelp/index/Types_of_Delay.html
