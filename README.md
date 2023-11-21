@@ -9,7 +9,7 @@
 2. [Data Processing](#data-processing)
 3. [Initial Assessment](#initial-assessment)
 4. [Delay Observations](#delay-observations)
-5. [Predictions: Logical Regression & Random Forest](#predictions-logical-regression-&-random-forest)
+5. [Predictions: Model Comparison](#predictions-model-comparison)
 6. [Conclusion & Future Prospects](#conclusion-&-future-prospects)
 7. [References](#references)
 
@@ -17,7 +17,7 @@
 ## Introduction
 The holidays are approaching and many are planning to travel by plane. Considering the delays one may face, is it worth it to fly?
 
-Though travellers may experience various inconveniences, I focused on delays since travellers are more likely to experience this in general, year-round. Annual diversion rates aren't very high, less than 4,000 based on recent averages. Cancellations typically stem from extreme circumstances- if one flight is canceled, likely multiple or all will follow suit regardless of the flight path or airlines.
+Though travellers may experience various inconveniences, I focused on delays since travellers are more likely to experience this in general, year-round. Annual diversion rates aren't very high, less than 4,000 based on recent averages. Cancellations typically stem from extreme circumstances- if one flight is cancelled due to such extremes, multiple or all others will likely follow suit, regardless of flight path or airlines.
 
 According to the FAA, a flight is considered delayed if it has not taken off within 15 minutes of its scheduled departure time.
 
@@ -28,7 +28,7 @@ Common causes of delays include:
 
 Delays result in a wide-range of negative effects for carriers, passengers, and beyond. Is it possible to predict if a flight will be delayed?
 
-To find out, I obtained my dataset from the Bureau of Transport Statistics and evaluated domestic flight records from September 2022 - August 2023. 
+To find out more, I obtained a dataset from the Bureau of Transport Statistics and evaluated domestic flight records from September 2022 - August 2023. 
 
 
 ## Data Processing
@@ -50,18 +50,17 @@ The larger cleaned dataset was loaded into Tableau for an initial analysis. The 
 ## Delay Observations
 The most delayed origins and destinations charts were topped by similar airport codes. The most delayed airlines also happen to provide the most flights, though Southwest had a significantly higher rate. This metric may be an anomaly when compared with other reports which reflect Delta and American as the top two carriers.
  
-
 Regardless, it is important to bear in mind that the busiest locations and top service companies may naturally experience a higher chance of delays.
 
 Additional delay notes:
 - Peaks in June/July, and December
 - Very slight trendline decrease as month progresses
-- Peaks dates 11th, 16th, 23rd, 26th
+- Peak dates: 11th, 16th, 23rd, 26th
 - Significant decrease in delays on 31st correlates with fewer scheduled flights
 - Fewer delays observed on Tuesdays, Wednesdays, and Saturdays
 
 
-## Predictions: Logistical Regression & Random Forest
+## Predictions: Model Comparison
 Let's quickly compare models before getting started:
 
 1. Logistical Regression
